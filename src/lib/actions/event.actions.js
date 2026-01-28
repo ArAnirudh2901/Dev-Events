@@ -4,6 +4,17 @@ import { Event } from "@/database";
 import connectToDB from "../mongodb";
 import { revalidatePath } from "next/cache";
 
+export const getAllEvents = async () => {
+    try {
+        await connectToDB()
+        const events = await Event.find().sort({ createdAt: -1 }).lean()
+        return JSON.parse(JSON.stringify(events))
+    } catch (e) {
+        console.error('Get all events failed:', e)
+        return []
+    }
+}
+
 export const getSimilarEventsBySlug = async (slug) => {
     try {
         await connectToDB()
