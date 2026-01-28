@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# DevEvents 🎉
 
-## Getting Started
+A modern platform to discover and create developer events including hackathons, meetups, and conferences.
 
-First, run the development server:
+## ✨ Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Browse Events** - View all developer events in a beautiful grid layout
+- **Event Details** - See complete event information with booking capability
+- **Create Events** - Add new events with rich details (title, description, venue, date, etc.)
+- **Book Events** - Reserve spots at events via email registration
+- **Similar Events** - Discover related events based on tags
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 16 (App Router)
+- **Database**: MongoDB with Mongoose
+- **Styling**: Tailwind CSS v4
+- **Image Hosting**: Cloudinary
+- **Analytics**: PostHog
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18+  
+- MongoDB database
+- Cloudinary account
+
+### Environment Variables
+
+Create a `.env` file in the root directory:
+
+```env
+MONGODB_URI=your_mongodb_connection_string
+NEXT_PUBLIC_BASE_URL=http://localhost:3000
+CLOUDINARY_URL=cloudinary://api_key:api_secret@cloud_name
+NEXT_PUBLIC_POSTHOG_KEY=your_posthog_key
+NEXT_PUBLIC_POSTHOG_HOST=https://us.i.posthog.com
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```bash
+# Install dependencies
+npm install
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Run development server
+npm run dev
+```
 
-## Learn More
+Open [http://localhost:3000](http://localhost:3000) to view the app.
 
-To learn more about Next.js, take a look at the following resources:
+## 📁 Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+src/
+├── app/
+│   ├── api/events/       # API routes for events
+│   ├── events/           # Events listing & detail pages  
+│   ├── create/           # Create event page
+│   └── page.js           # Homepage
+├── components/           # Reusable UI components
+├── database/             # Mongoose models
+└── lib/
+    ├── actions/          # Server actions
+    └── mongodb.js        # Database connection
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📝 License
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT License
